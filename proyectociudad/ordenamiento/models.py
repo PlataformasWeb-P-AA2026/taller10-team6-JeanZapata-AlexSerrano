@@ -1,13 +1,22 @@
 from django.db import models
 
 class Parroquia(models.Model):
-<<<<<<< HEAD
+    opciones_ubicacion = (
+        ('norte', 'Norte'),
+        ('sur', 'Sur'),
+        ('este', 'Este'),
+        ('oeste', 'Oeste'),
+    )
+    opciones_tipo = (
+        ('urbana', 'Urbana'),
+        ('rural', 'Rural'),
+    )
     nombre = models.CharField(max_length=100)
-    ubicacion = models.CharField(max_length=50)
-    tipo = models.CharField(max_length=20)
+    ubicacion = models.CharField(max_length=30, choices=opciones_ubicacion)
+    tipo = models.CharField(max_length=30, choices=opciones_tipo)
 
     def __str__(self):
-        return self.nombre
+        return "%s" % (self.nombre)
 
 class Barrio(models.Model):
     nombre = models.CharField(max_length=100)
@@ -28,21 +37,3 @@ class Presidente(models.Model):
 
     def __str__(self):
         return self.nickname
-=======
-    opciones_ubicacion = (
-        ('norte', 'Norte'),
-        ('sur', 'Sur'),
-        ('este', 'Este'),
-        ('oeste', 'Oeste'),
-    )
-    opciones_tipo = (
-        ('urbana', 'Urbana'),
-        ('rural', 'Rural'),
-    )
-    nombre = models.CharField(max_length=100)
-    ubicacion = models.CharField(max_length=30, choices=opciones_ubicacion)
-    tipo = models.CharField(max_length=30, choices=opciones_tipo)
-
-    def __str__(self):
-        return "%s" % (self.nombre)
->>>>>>> 1d0228d99bf39a117dbc4e2a6bf5261526b7ec2e
