@@ -1,18 +1,20 @@
-{% extends "master.html" %}
-
-{% block content %}
 <h2>Listado de Parroquias</h2>
 <p>Total de parroquias: {{ numero_parroquias }}</p>
 
 <ul>
-    {% for parroquia in parroquias %}
-    <li>
-        <strong>{{ parroquia.nombre }}</strong> ({{ parroquia.ubicacion }}, {{ parroquia.tipo }}) 
-        <a href="{% url 'editar_parroquia' parroquia.id %}">[Editar]</a>
-        <ul>
-            <li><em>Barrios por implementar</em></li>
-        </ul>
-    </li>
-    {% endfor %}
+ {% for parroquia in parroquias %}
+  <li>
+    <strong>{{ parroquia.nombre }}</strong> ({{ parroquia.ubicacion }}, {{ parroquia.tipo }}) 
+    - [<a href="{% url 'editar_parroquia' parroquia.id %}">editar</a>]
+    <ul>
+        <li><em>Barrios por implementar</em></li>
+    </ul>
+  </li>
+  <hr />
+ {% endfor %}
 </ul>
-{% endblock %}
+
+<br />
+[<a href="{% url 'listar_parroquias' %}">listar parroquias</a>]
+<br />
+[<a href="{% url 'crear_parroquia' %}">crear parroquia</a>]

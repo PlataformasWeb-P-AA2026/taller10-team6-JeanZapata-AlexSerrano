@@ -1,10 +1,12 @@
-{% extends "master.html" %}
-
-{% block content %}
 <h2>Crear Parroquia</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ formulario.as_p }}
-    <button type="submit">Guardar</button>
+
+<form action="" method="post">
+  {% csrf_token %}
+  {{formulario.as_p}}
+  <p><input type='submit' value='Agregar'/></p>
 </form>
-{% endblock %}
+
+<br />
+[<a href="{% url 'listar_parroquias' %}">listar parroquias</a>]
+<br />
+[<a href="{% url 'crear_parroquia' %}">crear parroquia</a>]
